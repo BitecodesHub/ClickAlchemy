@@ -39,7 +39,7 @@ export const Homepage = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [clientLogos.length]);
+  }, []);
 
   const scrollToSection = (elementRef) => {
     elementRef.current?.scrollIntoView({ 
@@ -114,42 +114,43 @@ export const Homepage = () => {
       </section>
 
       {/* Clients Section - Full Width Banner */}
-      <section className="bg-black py-20 w-full">
-        <div className="container mx-auto px-6 text-center">
-          <div className="max-w-5xl mx-auto mb-16">
-            <h2 className="text-5xl font-bold text-white mb-6">
-              Digital Services: Immersive Experiences
-            </h2>
-            <p className="text-gray-400 text-xl max-w-4xl mx-auto">
-              Our design thinking is aimed at reimagining, redesigning and solving marketing needs for the digital world. As an award-winning experience partner, we enable marketers to create an impact and deliver performance.
-            </p>
+      {/* Clients Section - Full Width Banner */}
+<section className="bg-black py-20 w-full">
+  <div className="container mx-auto px-6 text-center">
+    <div className="max-w-5xl mx-auto mb-16">
+      <h2 className="text-5xl font-bold text-white mb-6">
+        Digital Services: Immersive Experiences
+      </h2>
+      <p className="text-gray-400 text-xl max-w-4xl mx-auto">
+        Our design thinking is aimed at reimagining, redesigning and solving marketing needs for the digital world. As an award-winning experience partner, we enable marketers to create an impact and deliver performance.
+      </p>
+    </div>
+    <div className="w-full overflow-hidden">
+      <div className="flex justify-center items-center space-x-16 md:space-x-24 lg:space-x-32">
+        {clientLogos.map((client, index) => (
+          <div 
+            key={client.name} 
+            className="opacity-60 hover:opacity-100 transition-opacity duration-300"
+            style={{
+              transform: `translate3d(${index * -666.238}px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)`,
+              transformStyle: 'preserve-3d',
+              willChange: 'transform'
+            }}
+          >
+            <img 
+              src={client.logo} 
+              alt={client.name} 
+              className="h-64 md:h-80 w-auto grayscale hover:grayscale-0"
+            />
           </div>
-          <div className="w-full overflow-hidden">
-            <div className="flex justify-center items-center space-x-16 md:space-x-24 lg:space-x-32">
-              {clientLogos.map((client, index) => (
-                <div 
-                  key={client.name} 
-                  className="opacity-60 hover:opacity-100 transition-opacity duration-300"
-                  style={{
-                    transform: `translate3d(${index * -666.238}px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)`,
-                    transformStyle: 'preserve-3d',
-                    willChange: 'transform'
-                  }}
-                >
-                  <img 
-                    src={client.logo} 
-                    alt={client.name} 
-                    className="h-64 md:h-80 w-auto grayscale hover:grayscale-0"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="mt-8 text-gray-500 text-base">
-            10+ years of delivering integrated, immersive and impactful
-          </div>
-        </div>
-      </section>
+        ))}
+      </div>
+    </div>
+    <div className="mt-8 text-gray-500 text-base">
+      10+ years of delivering integrated, immersive and impactful
+    </div>
+  </div>
+</section>
 
       {/* Digital Marketing Approach Section */}
       <section className="bg-gray-900 py-20 text-white">

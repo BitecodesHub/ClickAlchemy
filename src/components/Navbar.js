@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
-import { Menu, X } from "lucide-react"; // Using Lucide icons for menu toggle
+import { Menu, X } from "lucide-react";
 
 export const Navbar = () => {
   const [showLoading, setShowLoading] = useState(true);
@@ -162,13 +162,20 @@ export const Navbar = () => {
           <div className="md:hidden">
             <button 
               onClick={toggleMobileMenu} 
-              className="text-white focus:outline-none"
+              className="relative w-10 h-10 group focus:outline-none"
               aria-label="Toggle mobile menu"
             >
               {isMobileMenuOpen ? (
-                <X size={24} />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-6 h-0.5 bg-white transform rotate-45 group-hover:bg-yellow-400 transition-all duration-300"></div>
+                  <div className="w-6 h-0.5 bg-white absolute transform -rotate-45 group-hover:bg-yellow-400 transition-all duration-300"></div>
+                </div>
               ) : (
-                <Menu size={24} />
+                <div className="absolute inset-0 flex flex-col justify-center space-y-1.5">
+                  <div className="w-6 h-0.5 bg-white group-hover:bg-yellow-400 transition-colors duration-300"></div>
+                  <div className="w-6 h-0.5 bg-white group-hover:bg-yellow-400 transition-colors duration-300"></div>
+                  <div className="w-6 h-0.5 bg-white group-hover:bg-yellow-400 transition-colors duration-300"></div>
+                </div>
               )}
             </button>
           </div>
@@ -176,25 +183,74 @@ export const Navbar = () => {
         
         {/* Mobile Menu Overlay */}
         {isMobileMenuOpen && (
-          <div className="fixed inset-0 bg-black z-40 md:hidden">
-            <nav className="flex flex-col items-center justify-center h-full space-y-8">
-              {navLinks.map((link) => (
-                <Link 
-                  key={link.to}
-                  to={link.to} 
+          <div 
+            className="fixed inset-0 bg-black/95 z-40 md:hidden 
+            animate-fade-in backdrop-blur-sm"
+          >
+            <div className="container mx-auto px-6 py-8 h-full flex flex-col">
+              {/* Mobile Menu Header */}
+              <div className="flex justify-between items-center mb-16">
+                <div 
+                  className="flex items-center space-x-3 cursor-pointer" 
                   onClick={() => {
+                    navigate("/");
                     toggleMobileMenu();
-                    link.onClick && link.onClick();
                   }}
-                  className="text-2xl text-white hover:text-yellow-400 transition-colors duration-300"
                 >
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
+                  <img 
+                    src="/logo.png" 
+                    alt="Logo" 
+                    className="w-12 h-12 rounded-full object-cover shadow-md" 
+                  />
+                  <span className="text-2xl text-white font-bold">
+                    ClickAlchemy
+                  </span>
+                </div>
+                
+                <button 
+                  onClick={toggleMobileMenu} 
+                  className="relative w-10 h-10 group focus:outline-none"
+                  aria-label="Close mobile menu"
+                >
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-6 h-0.5 bg-white transform rotate-45 group-hover:bg-yellow-400 transition-all duration-300"></div>
+                    <div className="w-6 h-0.5 bg-white absolute transform -rotate-45 group-hover:bg-yellow-400 transition-all duration-300"></div>
+                  </div>
+                </button>
+              </div>
+
+              {/* Mobile Menu Links */}
+              <nav className="flex flex-col space-y-8 flex-grow">
+                {navLinks.map((link) => (
+                  <Link 
+                    key={link.to}
+                    to={link.to} 
+                    onClick={() => {
+                      toggleMobileMenu();
+                      link.onClick && link.onClick();
+                    }}
+                    className="text-2xl text-gray-300 hover:text-yellow-400 
+                    transition-colors duration-300 flex items-center justify-between group"
+                  >
+                    <span>{link.label}</span>
+                    <span className="opacity-0 group-hover:opacity-100 
+                    transform group-hover:translate-x-2 transition-all duration-300">
+                      →
+                    </span>
+                  </Link>
+                ))}
+              </nav>
+
+              {/* Mobile Menu Footer */}
+              <div className="mt-16 text-center text-gray-500 text-sm">
+                © 2024 ClickAlchemy. All Rights Reserved.
+              </div>
+            </div>
           </div>
         )}
       </header>
     </>
   );
 };
+
+export default Navbar;
