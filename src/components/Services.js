@@ -7,7 +7,6 @@ import {
   Rocket, 
   Users, 
   ShieldCheck, 
-  BrandX 
 } from 'lucide-react';
 
 export const Services = () => {
@@ -27,7 +26,7 @@ export const Services = () => {
     },
     {
       title: "Precision Email Marketing",
-      icon: BrandX,
+      icon: Rocket,
       desc: "Create personalized, high-converting email campaigns that engage your audience and nurture lasting customer relationships.",
       items: [
         "Segmented audience targeting",
