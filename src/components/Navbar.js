@@ -1,9 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
+import { Menu, X } from "lucide-react"; // Using Lucide icons for menu toggle
 
 export const Navbar = () => {
   const [showLoading, setShowLoading] = useState(true);
   const [animationPhase, setAnimationPhase] = useState("initial");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const loadingLogoRef = useRef(null);
   const navbarLogoRef = useRef(null);
   const loadingScreenRef = useRef(null);
@@ -11,6 +13,11 @@ export const Navbar = () => {
   const navigate = useNavigate();
 
   const isHomepage = location.pathname === "/";
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location]);
 
   useEffect(() => {
     if (!isHomepage) {
@@ -85,6 +92,17 @@ export const Navbar = () => {
     }, 100);
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const navLinks = [
+    { to: "/", label: "Home", onClick: handleHomePageLoad },
+    { to: "/services", label: "Services" },
+    { to: "/about", label: "About" },
+    { to: "/contact", label: "Contact" }
+  ];
+
   return (
     <>
       {isHomepage && showLoading && (
@@ -119,56 +137,63 @@ export const Navbar = () => {
               ClickAlchemy
             </span>
           </div>
-          <nav>
+          
+          {/* Desktop Navigation */}
+          <nav className="hidden md:block">
             <ul className="flex space-x-8 text-gray-300">
-              <li>
-                <Link 
-                  to="/" 
-                  onClick={handleHomePageLoad}
-                  className="relative group text-gray-300 hover:text-yellow-400 transition-colors duration-300"
-                >
-                  <span className="relative">
-                    Home
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/services" 
-                  className="relative group text-gray-300 hover:text-yellow-400 transition-colors duration-300"
-                >
-                  <span className="relative">
-                    Services
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/about" 
-                  className="relative group text-gray-300 hover:text-yellow-400 transition-colors duration-300"
-                >
-                  <span className="relative">
-                    About
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
-                  </span>
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/contact" 
-                  className="relative group text-gray-300 hover:text-yellow-400 transition-colors duration-300"
-                >
-                  <span className="relative">
-                    Contact
-                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
-                  </span>
-                </Link>
-              </li>
+              {navLinks.map((link) => (
+                <li key={link.to}>
+                  <Link 
+                    to={link.to} 
+                    onClick={link.onClick}
+                    className="relative group text-gray-300 hover:text-yellow-400 transition-colors duration-300"
+                  >
+                    <span className="relative">
+                      {link.label}
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+                    </span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
+          
+          {/* Mobile Menu Toggle */}
+          <div className="md:hidden">
+            <button 
+              onClick={toggleMobileMenu} 
+              className="text-white focus:outline-none"
+              aria-label="Toggle mobile menu"
+            >
+              {isMobileMenuOpen ? (
+                <X size={24} />
+              ) : (
+                <Menu size={24} />
+              )}
+            </button>
+          </div>
         </div>
+        
+        {/* Mobile Menu Overlay */}
+        {isMobileMenuOpen && (
+          <div className="fixed inset-0 bg-black z-40 md:hidden">
+            <nav className="flex flex-col items-center justify-center h-full space-y-8">
+              {navLinks.map((link) => (
+                <Link 
+                  key={link.to}
+                  to={link.to} 
+                  onClick={() => {
+                    toggleMobileMenu();
+                    link.onClick && link.onClick();
+                  }}
+                  className="text-2xl text-white hover:text-yellow-400 transition-colors duration-300"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          </div>
+        )}
       </header>
     </>
   );
