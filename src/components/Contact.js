@@ -18,17 +18,16 @@ export const ContactSection = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add form submission logic here
     console.log('Form submitted:', formData);
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 to-indigo-950 text-white">
+    <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 via-neutral-900 to-black text-white">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-4 
             bg-clip-text text-transparent 
-            bg-gradient-to-r from-purple-400 to-pink-600
+            bg-gradient-to-r from-blue-500 to-purple-500
             animate-gradient-x">
             Connect With Us
           </h2>
@@ -42,10 +41,10 @@ export const ContactSection = () => {
           {/* Contact Form */}
           <div className="bg-gray-800/60 backdrop-blur-lg p-8 rounded-2xl 
             border border-gray-700/50 
-            hover:border-purple-500/50 
+            hover:border-blue-500/50 
             transition-all duration-500 
-            hover:shadow-2xl hover:shadow-purple-500/20">
-            <h3 className="text-2xl font-bold mb-6 text-purple-300">
+            hover:shadow-2xl hover:shadow-blue-500/20">
+            <h3 className="text-2xl font-bold mb-6 text-blue-300">
               Send Us a Message
             </h3>
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -64,10 +63,10 @@ export const ContactSection = () => {
                       bg-gray-900/60 
                       border border-gray-700 
                       rounded-xl 
-                      focus:ring-2 focus:ring-purple-500 
+                      focus:ring-2 focus:ring-blue-500 
                       focus:border-transparent 
                       transition-all 
-                      hover:border-purple-500/50"
+                      hover:border-blue-500/50"
                     placeholder="Enter your name"
                   />
                 </div>
@@ -85,10 +84,10 @@ export const ContactSection = () => {
                       bg-gray-900/60 
                       border border-gray-700 
                       rounded-xl 
-                      focus:ring-2 focus:ring-purple-500 
+                      focus:ring-2 focus:ring-blue-500 
                       focus:border-transparent 
                       transition-all 
-                      hover:border-purple-500/50"
+                      hover:border-blue-500/50"
                     placeholder="Enter your email"
                   />
                 </div>
@@ -107,10 +106,10 @@ export const ContactSection = () => {
                     bg-gray-900/60 
                     border border-gray-700 
                     rounded-xl 
-                    focus:ring-2 focus:ring-purple-500 
+                    focus:ring-2 focus:ring-blue-500 
                     focus:border-transparent 
                     transition-all 
-                    hover:border-purple-500/50"
+                    hover:border-blue-500/50"
                   placeholder="Tell us about your project"
                   rows="4"
                 ></textarea>
@@ -119,7 +118,7 @@ export const ContactSection = () => {
               <button
                 type="submit"
                 className="w-full 
-                  bg-gradient-to-r from-purple-600 to-pink-500 
+                  bg-gradient-to-r from-blue-600 to-purple-500 
                   text-white 
                   px-8 py-3 
                   rounded-xl 
@@ -128,7 +127,7 @@ export const ContactSection = () => {
                   transition-all 
                   duration-300 
                   hover:shadow-xl 
-                  hover:shadow-purple-500/40"
+                  hover:shadow-blue-500/40"
               >
                 Send Message
               </button>
@@ -139,10 +138,10 @@ export const ContactSection = () => {
           <div className="space-y-6">
             <div className="bg-gray-800/60 backdrop-blur-lg p-8 rounded-2xl 
               border border-gray-700/50 
-              hover:border-purple-500/50 
+              hover:border-blue-500/50 
               transition-all duration-500 
-              hover:shadow-2xl hover:shadow-purple-500/20">
-              <h3 className="text-2xl font-bold mb-6 text-purple-300">
+              hover:shadow-2xl hover:shadow-blue-500/20">
+              <h3 className="text-2xl font-bold mb-6 text-blue-300">
                 Contact Details
               </h3>
               <div className="space-y-6">
@@ -164,22 +163,22 @@ export const ContactSection = () => {
                 ].map((item, index) => (
                   <div key={index} className="flex gap-4 items-center group">
                     <div className="w-14 h-14 
-                      bg-purple-500/20 
+                      bg-blue-500/20 
                       rounded-xl 
                       flex items-center 
                       justify-center 
-                      group-hover:bg-purple-500/40 
+                      group-hover:bg-blue-500/40 
                       transition-all duration-300">
                       <item.icon 
-                        className="text-purple-400 
-                        group-hover:text-purple-200 
+                        className="text-blue-400 
+                        group-hover:text-blue-200 
                         transition-colors"
                         size={28} 
                       />
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold mb-1 
-                        group-hover:text-purple-300 
+                        group-hover:text-blue-300 
                         transition-colors">
                         {item.title}
                       </h4>
@@ -187,7 +186,7 @@ export const ContactSection = () => {
                       <a 
                         href={item.href} 
                         className="text-white 
-                        hover:text-purple-300 
+                        hover:text-blue-300 
                         transition-colors"
                       >
                         {item.value}
@@ -201,10 +200,10 @@ export const ContactSection = () => {
             {/* Social Media Links */}
             <div className="bg-gray-800/60 backdrop-blur-lg p-8 rounded-2xl 
               border border-gray-700/50 
-              hover:border-purple-500/50 
+              hover:border-blue-500/50 
               transition-all duration-500 
-              hover:shadow-2xl hover:shadow-purple-500/20">
-              <h3 className="text-2xl font-bold mb-6 text-purple-300">
+              hover:shadow-2xl hover:shadow-blue-500/20">
+              <h3 className="text-2xl font-bold mb-6 text-blue-300">
                 Follow Our Journey
               </h3>
               <div className="flex gap-4 justify-center">
@@ -224,7 +223,7 @@ export const ContactSection = () => {
                       rounded-full 
                       flex items-center 
                       justify-center 
-                      hover:bg-purple-500/30 
+                      hover:bg-blue-500/30 
                       transition-all 
                       duration-300 
                       group 
@@ -232,7 +231,7 @@ export const ContactSection = () => {
                   >
                     <social.Icon 
                       className="text-white 
-                      group-hover:text-purple-300 
+                      group-hover:text-blue-300 
                       transition-colors" 
                       size={24} 
                     />
