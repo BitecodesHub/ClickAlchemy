@@ -127,7 +127,7 @@ export const Navbar = () => {
               ref={loadingLogoRef}
               src="/logo.png"
               alt="Logo"
-              className="w-40 h-40 rounded-full object-cover shadow-2xl transition-all duration-1000 transform hover:scale-110 hover:rotate-6"
+              className="w-40 h-40 rounded-full object-cover shadow-2xl transition-all duration-1000 transform hover:scale-110 "
             />
             <div className="absolute inset-0 rounded-full animate-ping bg-blue-200/20 opacity-75"></div>
           </div>
@@ -143,26 +143,26 @@ export const Navbar = () => {
               ref={navbarLogoRef}
               src="/logo.png"
               alt="Logo"
-              className="w-10 h-10 rounded-full object-cover shadow-md transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 group-hover:shadow-blue-300/40"
+              className="w-10 h-10 rounded-full object-cover shadow-md transition-all duration-500 group-hover:scale-110  group-hover:shadow-blue-300/40"
             />
-            <span className="text-xl font-bold text-white transition-all duration-300 group-hover:text-blue-300 group-hover:scale-105">
+            <span className="text-xl font-bold text-white transition-all duration-300 group-hover:text-[#efa71b] group-hover:scale-105">
               ClickAlchemy
             </span>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:block">
-            <ul className="flex space-x-8 text-gray-300">
+            <ul className="flex space-x-8">
               {navLinks.map((link) => (
                 <li key={link.to}>
                   <Link
                     to={link.to}
                     onClick={link.onClick}
-                    className="relative group text-gray-300 hover:text-blue-300 transition-all duration-400 ease-in-out"
+                    className="relative group text-white hover:text-[#efa71b] transition-all duration-400 ease-in-out"
                   >
-                    <span className="relative inline-block transition-transform duration-400 group-hover:scale-110 group-hover:rotate-3">
+                    <span className="relative inline-block transition-transform duration-400 group-hover:scale-110 ">
                       {link.label}
-                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-300 transition-all duration-400 group-hover:w-full"></span>
+                      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#efa71b] transition-all duration-400 group-hover:w-full"></span>
                     </span>
                   </Link>
                 </li>
@@ -179,14 +179,14 @@ export const Navbar = () => {
             >
               {isMobileMenuOpen ? (
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-6 h-0.5 bg-white transform rotate-45 group-hover:bg-blue-300 group-hover:scale-110 transition-all duration-400"></div>
-                  <div className="w-6 h-0.5 bg-white absolute transform -rotate-45 group-hover:bg-blue-300 group-hover:scale-110 transition-all duration-400"></div>
+                  <div className="w-6 h-0.5 bg-white transform  group-hover:bg-[#efa71b] group-hover:scale-110 transition-all duration-400"></div>
+                  <div className="w-6 h-0.5 bg-white absolute transform  group-hover:bg-[#efa71b] group-hover:scale-110 transition-all duration-400"></div>
                 </div>
               ) : (
                 <div className="absolute inset-0 flex flex-col justify-center space-y-1.5">
-                  <div className="w-6 h-0.5 bg-white group-hover:bg-blue-300 group-hover:scale-125 transition-all duration-400"></div>
-                  <div className="w-6 h-0.5 bg-white group-hover:bg-blue-300 group-hover:scale-125 transition-all duration-400"></div>
-                  <div className="w-6 h-0.5 bg-white group-hover:bg-blue-300 group-hover:scale-125 transition-all duration-400"></div>
+                  <div className="w-6 h-0.5 bg-white group-hover:bg-[#efa71b] group-hover:scale-125 transition-all duration-400"></div>
+                  <div className="w-6 h-0.5 bg-white group-hover:bg-[#efa71b] group-hover:scale-125 transition-all duration-400"></div>
+                  <div className="w-6 h-0.5 bg-white group-hover:bg-[#efa71b] group-hover:scale-125 transition-all duration-400"></div>
                 </div>
               )}
             </button>
@@ -215,9 +215,9 @@ export const Navbar = () => {
                   <img
                     src="/logo.png"
                     alt="Logo"
-                    className="w-12 h-12 rounded-full object-cover shadow-md transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 group-hover:shadow-blue-300/40"
+                    className="w-12 h-12 rounded-full object-cover shadow-md transition-all duration-500 group-hover:scale-110 group-hover:shadow-blue-300/40"
                   />
-                  <span className="text-2xl font-bold text-white transition-all duration-300 group-hover:text-blue-300 group-hover:scale-105">
+                  <span className="text-2xl font-bold text-white transition-all duration-300 group-hover:text-[#efa71b] group-hover:scale-105">
                     ClickAlchemy
                   </span>
                 </div>
@@ -228,8 +228,8 @@ export const Navbar = () => {
                   aria-label="Close mobile menu"
                 >
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-6 h-0.5 bg-white transform rotate-45 group-hover:bg-blue-300 group-hover:scale-110 transition-all duration-400"></div>
-                    <div className="w-6 h-0.5 bg-white absolute transform -rotate-45 group-hover:bg-blue-300 group-hover:scale-110 transition-all duration-400"></div>
+                    <div className="w-6 h-0.5 bg-white transform group-hover:bg-[#efa71b] group-hover:scale-110 transition-all duration-400"></div>
+                    <div className="w-6 h-0.5 bg-white absolute transform  group-hover:bg-[#efa71b] group-hover:scale-110 transition-all duration-400"></div>
                   </div>
                 </button>
               </div>
@@ -244,12 +244,12 @@ export const Navbar = () => {
                       toggleMobileMenu();
                       link.onClick && link.onClick();
                     }}
-                    className="text-2xl text-gray-300 hover:text-blue-300 transition-all duration-400 ease-in-out group flex items-center justify-between"
+                    className="text-2xl text-white hover:text-[#efa71b] transition-all duration-400 ease-in-out group flex items-center justify-between"
                   >
-                    <span className="transition-transform duration-400 group-hover:scale-110 group-hover:rotate-3">
+                    <span className="transition-transform duration-400 group-hover:scale-110 ">
                       {link.label}
                     </span>
-                    <span className="opacity-0 group-hover:opacity-100 transform group-hover:translate-x-2 group-hover:rotate-12 transition-all duration-400 text-blue-300">
+                    <span className="opacity-0 group-hover:opacity-100 transform group-hover:translate-x-2 transition-all duration-400 text-[#efa71b]">
                       →
                     </span>
                   </Link>
