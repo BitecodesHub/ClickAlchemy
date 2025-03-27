@@ -12,27 +12,31 @@ export const AboutSection = () => {
   const companyStats = [
     { 
       icon: Users, 
-      value: "200+", 
+      value: "5+", 
       label: "Satisfied Clients", 
-      color: "text-blue-400" 
+      color: "text-yellow-400",
+      bg: "bg-yellow-400/10"
     },
     { 
       icon: Globe, 
-      value: "50+", 
+      value: "5+", 
       label: "Global Partnerships", 
-      color: "text-green-400" 
+      color: "text-yellow-400",
+      bg: "bg-yellow-400/10"
     },
     { 
       icon: Award, 
-      value: "15+", 
+      value: "10+", 
       label: "Industry Awards", 
-      color: "text-purple-400" 
+      color: "text-yellow-400",
+      bg: "bg-yellow-400/10"
     },
     { 
       icon: Target, 
-      value: "8+", 
+      value: "1+", 
       label: "Years of Innovation", 
-      color: "text-pink-400" 
+      color: "text-yellow-400",
+      bg: "bg-yellow-400/10"
     }
   ];
 
@@ -57,94 +61,105 @@ export const AboutSection = () => {
   return (
     <section 
       id="about" 
-      className="py-20 bg-gradient-to-br from-gray-900 via-neutral-900 to-black relative overflow-hidden"
+      className="relative py-12 sm:py-16 md:py-24 bg-black text-white overflow-hidden"
     >
-      <div className="container mx-auto px-4 max-w-7xl">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+      <div className="container mx-auto px-4 max-w-7xl relative">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           {/* Image Section */}
-          <div className="relative group">
-            <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl opacity-20 group-hover:opacity-40 transition duration-1000 blur-xl"></div>
-            
-            <img
-              src="/logo.png" 
-              alt="ClickAlchemy Digital Marketing"
-              className="relative z-10 rounded-2xl shadow-2xl w-full h-auto 
-              transform transition-all duration-700 
-              group-hover:scale-105 group-hover:rotate-1 
-              group-hover:shadow-2xl group-hover:brightness-110"
-            />
+          <div className="relative group lg:order-last">
+            <div className="relative overflow-hidden rounded-2xl md:rounded-3xl border-2 border-gray-800 max-w-xl mx-auto lg:mx-0">
+              <img
+                src="/logo.png"
+                alt="ClickAlchemy Digital Marketing"
+                className="w-full h-auto transform transition-all duration-500 
+                group-hover:scale-105 group-hover:brightness-110"
+              />
+              <div className="absolute inset-0 border-2 border-transparent group-hover:border-yellow-400/30 transition-colors duration-300" />
+            </div>
           </div>
 
           {/* Content Section */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-bold text-white animate-fadeInUp">
-                About ClickAlchemy
+          <div className="space-y-6 md:space-y-8">
+            <div className="space-y-4 text-center lg:text-left">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+                Redefining Digital Excellence
               </h2>
-              <p className="text-gray-300 text-lg animate-fadeInUp delay-300">
-                We are a dynamic digital marketing agency that transforms complex challenges into 
-                breakthrough opportunities. Our holistic approach combines technological expertise, 
-                creative innovation, and strategic insights to accelerate your business growth.
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
+                At ClickAlchemy, we transform digital challenges into growth opportunities through 
+                technological mastery, creative innovation, and strategic precision.
               </p>
             </div>
 
             {/* Core Values */}
-            <div className="space-y-4">
+            <div className="space-y-4 md:space-y-6 max-w-2xl mx-auto lg:mx-0">
               {coreValues.map((value, index) => (
                 <div 
                   key={index} 
-                  className="flex items-center space-x-4 bg-gray-800/50 p-4 rounded-xl hover:bg-gray-800/70 transition-all"
+                  className="flex items-start gap-4 p-4 md:p-6 bg-gray-900 rounded-xl
+                  hover:bg-gray-800 transition-all duration-300 cursor-pointer group"
                 >
-                  <value.icon 
-                    className="w-10 h-10 text-blue-400" 
-                    strokeWidth={1.5} 
-                  />
-                  <div>
-                    <h4 className="font-semibold text-white">{value.title}</h4>
-                    <p className="text-gray-400 text-sm">{value.desc}</p>
+                  <div className={`p-2 md:p-3 rounded-lg ${companyStats[0].bg} transition-colors`}>
+                    <value.icon 
+                      className="w-6 h-6 md:w-8 md:h-8 text-yellow-400" 
+                      strokeWidth={1.5} 
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg md:text-xl font-semibold text-white mb-1 md:mb-2">
+                      {value.title}
+                    </h3>
+                    <p className="text-gray-400 text-sm md:text-base">
+                      {value.desc}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Company Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto lg:mx-0">
               {companyStats.map((stat, index) => (
                 <div 
                   key={index} 
-                  className="bg-gray-800/50 p-4 rounded-xl text-center hover:bg-gray-800/70 transition-all"
+                  className={`p-4 rounded-xl ${stat.bg} transition-colors
+                  hover:bg-yellow-400/20 border border-transparent hover:border-yellow-400/30`}
                 >
                   <stat.icon 
-                    className={`w-10 h-10 mx-auto mb-2 ${stat.color}`} 
+                    className={`w-8 h-8 mx-auto mb-2 ${stat.color}`} 
                     strokeWidth={1.5} 
                   />
-                  <p className="text-2xl font-bold text-white">{stat.value}</p>
-                  <p className="text-gray-400 text-sm">{stat.label}</p>
+                  <p className="text-lg font-bold text-white text-center">
+                    {stat.value}
+                  </p>
+                  <p className="text-xs text-gray-400 text-center">
+                    {stat.label}
+                  </p>
                 </div>
               ))}
             </div>
 
             {/* CTA Button */}
-            <button 
-              className="
-                flex items-center justify-center gap-2
-                w-full md:w-auto
-                bg-white text-black 
-                px-8 py-3 rounded-full 
-                font-semibold 
-                hover:bg-blue-400 
-                transition-all duration-300 
-                hover:scale-105 
-                hover:shadow-xl 
-                hover:text-white
-                group
-              "
-            >
-              Learn More About Us
-              <ArrowRight 
-                className="w-5 h-5 group-hover:translate-x-1 transition-transform" 
-              />
-            </button>
+            <div className="flex justify-center lg:justify-start">
+              <button 
+                className="
+                  w-full max-w-xs
+                  bg-white text-black 
+                  px-6 py-3 md:px-8 md:py-4 rounded-full 
+                  font-semibold
+                  hover:bg-yellow-400 
+                  transition-all duration-300 
+                  hover:scale-[1.02] 
+                  hover:shadow-lg
+                  flex items-center justify-center gap-2
+                  group
+                "
+              >
+                Explore Our Journey
+                <ArrowRight 
+                  className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" 
+                />
+              </button>
+            </div>
           </div>
         </div>
       </div>

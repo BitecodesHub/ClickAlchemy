@@ -1,249 +1,154 @@
-import React, { useState } from 'react';
-import { Mail, Phone, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import React from "react"
 
 export const ContactSection = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
+    return (
+        <div id="webcrumbs">
+            <div className="w-full bg-black text-white font-sans">
+               
 
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [id]: value
-    }));
-  };
+                <section className="py-16 px-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <div className="flex flex-col justify-center">
+                            <h2 className="text-5xl font-bold mb-6">
+                                Get in{" "}
+                                <span className="bg-gradient-to-r from-purple-500 to-yellow-400 bg-clip-text text-transparent">
+                                    Touch
+                                </span>
+                            </h2>
+                            <p className="text-gray-300 mb-8 text-lg">
+                                Ready to transform your digital presence? Our team of marketing experts is here to help
+                                you achieve your business goals.
+                            </p>
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-  };
+                            <div className="flex items-center mb-6 group">
+                                <div className="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mr-4 group-hover:bg-purple-900 transition-colors duration-300">
+                                    <span className="material-symbols-outlined">location_on</span>
+                                </div>
+                                <div>
+                                    <h3 className="font-semibold text-lg">Our Location</h3>
+                                    <p className="text-gray-400">123 Digital Avenue, Tech City, TC 10101</p>
+                                </div>
+                            </div>
 
-  return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 via-neutral-900 to-black text-white">
-      <div className="container mx-auto px-6 max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-4 
-            bg-clip-text text-transparent 
-            bg-gradient-to-r from-blue-500 to-purple-500
-            animate-gradient-x">
-            Connect With Us
-          </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto text-lg 
-            animate-[fadeInUp_1s_ease-out_0.3s_both]">
-            Ready to transform your digital strategy? Reach out and let's create something extraordinary together.
-          </p>
-        </div>
+                            <div className="flex items-center mb-6 group">
+                                <div className="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mr-4 group-hover:bg-purple-900 transition-colors duration-300">
+                                    <span className="material-symbols-outlined">email</span>
+                                </div>
+                                <div>
+                                    <h3 className="font-semibold text-lg">Email Us</h3>
+                                    <p className="text-gray-400">contact@clickalchemy.com</p>
+                                </div>
+                            </div>
 
-        <div className="grid md:grid-cols-2 gap-10">
-          {/* Contact Form */}
-          <div className="bg-gray-800/60 backdrop-blur-lg p-8 rounded-2xl 
-            border border-gray-700/50 
-            hover:border-blue-500/50 
-            transition-all duration-500 
-            hover:shadow-2xl hover:shadow-blue-500/20">
-            <h3 className="text-2xl font-bold mb-6 text-blue-300">
-              Send Us a Message
-            </h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300">
-                    Full Name*
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 
-                      bg-gray-900/60 
-                      border border-gray-700 
-                      rounded-xl 
-                      focus:ring-2 focus:ring-blue-500 
-                      focus:border-transparent 
-                      transition-all 
-                      hover:border-blue-500/50"
-                    placeholder="Enter your name"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300">
-                    Email Address*
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 
-                      bg-gray-900/60 
-                      border border-gray-700 
-                      rounded-xl 
-                      focus:ring-2 focus:ring-blue-500 
-                      focus:border-transparent 
-                      transition-all 
-                      hover:border-blue-500/50"
-                    placeholder="Enter your email"
-                  />
-                </div>
-              </div>
+                            <div className="flex items-center mb-10 group">
+                                <div className="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center mr-4 group-hover:bg-purple-900 transition-colors duration-300">
+                                    <span className="material-symbols-outlined">call</span>
+                                </div>
+                                <div>
+                                    <h3 className="font-semibold text-lg">Call Us</h3>
+                                    <p className="text-gray-400">+1 (555) 123-4567</p>
+                                </div>
+                            </div>
 
-              <div className="space-y-2">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300">
-                  Message*
-                </label>
-                <textarea
-                  id="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 
-                    bg-gray-900/60 
-                    border border-gray-700 
-                    rounded-xl 
-                    focus:ring-2 focus:ring-blue-500 
-                    focus:border-transparent 
-                    transition-all 
-                    hover:border-blue-500/50"
-                  placeholder="Tell us about your project"
-                  rows="4"
-                ></textarea>
-              </div>
+                            <div className="flex space-x-4">
+                                <a
+                                    href="https://webcrumbs.cloud/placeholder"
+                                    className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-all duration-300 transform hover:scale-110"
+                                >
+                                    <i className="fa-brands fa-facebook-f"></i>
+                                </a>
+                                <a
+                                    href="https://webcrumbs.cloud/placeholder"
+                                    className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 transition-all duration-300 transform hover:scale-110"
+                                >
+                                    <i className="fa-brands fa-instagram"></i>
+                                </a>
+                                <a
+                                    href="https://webcrumbs.cloud/placeholder"
+                                    className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-400 transition-all duration-300 transform hover:scale-110"
+                                >
+                                    <i className="fa-brands fa-twitter"></i>
+                                </a>
+                                <a
+                                    href="https://webcrumbs.cloud/placeholder"
+                                    className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-700 transition-all duration-300 transform hover:scale-110"
+                                >
+                                    <i className="fa-brands fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
 
-              <button
-                type="submit"
-                className="w-full 
-                  bg-gradient-to-r from-blue-600 to-purple-500 
-                  text-white 
-                  px-8 py-3 
-                  rounded-xl 
-                  font-bold 
-                  hover:scale-105 
-                  transition-all 
-                  duration-300 
-                  hover:shadow-xl 
-                  hover:shadow-blue-500/40"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
+                        <div className="bg-gray-900 rounded-xl p-8 shadow-lg shadow-purple-900/20">
+                            <h3 className="text-2xl font-bold mb-6">Send Us a Message</h3>
 
-          {/* Contact Information */}
-          <div className="space-y-6">
-            <div className="bg-gray-800/60 backdrop-blur-lg p-8 rounded-2xl 
-              border border-gray-700/50 
-              hover:border-blue-500/50 
-              transition-all duration-500 
-              hover:shadow-2xl hover:shadow-blue-500/20">
-              <h3 className="text-2xl font-bold mb-6 text-blue-300">
-                Contact Details
-              </h3>
-              <div className="space-y-6">
-                {[
-                  {
-                    icon: Phone,
-                    title: "Phone",
-                    subtitle: "Sales & Support",
-                    value: "+1 (555) 123-4567",
-                    href: "tel:+15551234567"
-                  },
-                  {
-                    icon: Mail,
-                    title: "Email",
-                    subtitle: "General Inquiries",
-                    value: "hello@digitalalchemy.com",
-                    href: "mailto:hello@digitalalchemy.com"
-                  }
-                ].map((item, index) => (
-                  <div key={index} className="flex gap-4 items-center group">
-                    <div className="w-14 h-14 
-                      bg-blue-500/20 
-                      rounded-xl 
-                      flex items-center 
-                      justify-center 
-                      group-hover:bg-blue-500/40 
-                      transition-all duration-300">
-                      <item.icon 
-                        className="text-blue-400 
-                        group-hover:text-blue-200 
-                        transition-colors"
-                        size={28} 
-                      />
+                            <form>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                                    <div>
+                                        <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2">
+                                            Full Name
+                                        </label>
+                                        <input
+                                            type="text"
+                                            id="name"
+                                            placeholder="John Doe"
+                                            className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">
+                                            Email Address
+                                        </label>
+                                        <input
+                                            type="email"
+                                            id="email"
+                                            placeholder="john@example.com"
+                                            className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="mb-5">
+                                    <label htmlFor="subject" className="block text-sm font-medium text-gray-400 mb-2">
+                                        Subject
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="subject"
+                                        placeholder="How can we help you?"
+                                        className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
+                                    />
+                                </div>
+
+                                <div className="mb-5">
+                                    <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2">
+                                        Your Message
+                                    </label>
+                                    <textarea
+                                        id="message"
+                                        rows="5"
+                                        placeholder="Tell us about your project or inquiry..."
+                                        className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300"
+                                    ></textarea>
+                                </div>
+
+                                
+
+                                <button
+                                    type="submit"
+                                    className="w-full bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white font-medium py-3 px-4 rounded-lg transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-lg"
+                                >
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                    <div>
-                      <h4 className="text-lg font-semibold mb-1 
-                        group-hover:text-blue-300 
-                        transition-colors">
-                        {item.title}
-                      </h4>
-                      <p className="text-gray-400 mb-1">{item.subtitle}</p>
-                      <a 
-                        href={item.href} 
-                        className="text-white 
-                        hover:text-blue-300 
-                        transition-colors"
-                      >
-                        {item.value}
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+                </section>
 
-            {/* Social Media Links */}
-            <div className="bg-gray-800/60 backdrop-blur-lg p-8 rounded-2xl 
-              border border-gray-700/50 
-              hover:border-blue-500/50 
-              transition-all duration-500 
-              hover:shadow-2xl hover:shadow-blue-500/20">
-              <h3 className="text-2xl font-bold mb-6 text-blue-300">
-                Follow Our Journey
-              </h3>
-              <div className="flex gap-4 justify-center">
-                {[
-                  { Icon: Facebook, href: "https://facebook.com/digitalalchemy" },
-                  { Icon: Twitter, href: "https://twitter.com/digitalalchemy" },
-                  { Icon: Linkedin, href: "https://linkedin.com/company/digitalalchemy" },
-                  { Icon: Instagram, href: "https://instagram.com/digitalalchemy" }
-                ].map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-14 h-14 
-                      bg-gray-900/50 
-                      rounded-full 
-                      flex items-center 
-                      justify-center 
-                      hover:bg-blue-500/30 
-                      transition-all 
-                      duration-300 
-                      group 
-                      hover:scale-110"
-                  >
-                    <social.Icon 
-                      className="text-white 
-                      group-hover:text-blue-300 
-                      transition-colors" 
-                      size={24} 
-                    />
-                  </a>
-                ))}
-              </div>
+               
+
+
             </div>
-          </div>
         </div>
-      </div>
-    </section>
-  );
-};
-
+    )
+}
 export default ContactSection;

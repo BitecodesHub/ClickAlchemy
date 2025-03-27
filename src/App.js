@@ -6,6 +6,7 @@ import { Navbar } from "./components/Navbar.js";
 import AboutSection from "./components/About.js";
 import Services from "./components/Services.js";
 import ContactSection from "./components/Contact.js";
+import ClickAlchemyFooter from "./components/Footer.js";
 // No curly braces
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<ContactSection />} />
         </Routes>
-        {/* <Footer /> */}
+        <ClickAlchemyFooter />
       </div>
     </Router>
   );

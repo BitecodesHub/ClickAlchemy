@@ -1,8 +1,5 @@
 import React from "react";
 import { 
-  ScrollReveal, 
-  Clock, 
-  ChartBar, 
   Target, 
   Rocket, 
   Users, 
@@ -21,8 +18,10 @@ export const Services = () => {
         "Content optimization & link building",
         "Local and international SEO strategies"
       ],
-      link: "/services/seo",
-      color: "bg-blue-500"
+      link: "/contact",
+      color: "bg-slate-700",
+      gradientFrom: "from-blue-500/20",
+      gradientTo: "to-blue-900/20"
     },
     {
       title: "Precision Email Marketing",
@@ -34,8 +33,10 @@ export const Services = () => {
         "Advanced performance analytics",
         "A/B testing & optimization"
       ],
-      link: "/services/email-marketing",
-      color: "bg-purple-500"
+      link: "/contact",
+      color: "bg-slate-800",
+      gradientFrom: "from-purple-500/20",
+      gradientTo: "to-purple-900/20"
     },
     {
       title: "Social Media Mastery",
@@ -47,8 +48,10 @@ export const Services = () => {
         "Influencer collaboration",
         "Targeted social advertising"
       ],
-      link: "/services/social-media",
-      color: "bg-pink-500"
+      link: "/contact",
+      color: "bg-slate-900",
+      gradientFrom: "from-green-500/20",
+      gradientTo: "to-green-900/20"
     },
     {
       title: "Performance Marketing",
@@ -60,117 +63,163 @@ export const Services = () => {
         "Retargeting strategies",
         "Comprehensive marketing analytics"
       ],
-      link: "/services/performance-marketing",
-      color: "bg-green-500"
+      link: "/contact",
+      color: "bg-neutral-900",
+      gradientFrom: "from-red-500/20",
+      gradientTo: "to-red-900/20"
     }
   ];
 
+  const clientLogos = [
+    { logo: "/rivala.png", name: "Tech Innovators", link: "https://techinnovators.com" },
+    { logo: "/rivala.png", name: "Global Brands", link: "https://globalbrands.com" },
+    { logo: "/rivala.png", name: "Digital Pioneers", link: "https://digitalpioneers.com" },
+    { logo: "/rivala.png", name: "Growth Accelerators", link: "https://growthaccelerators.com" },
+    { logo: "/rivala.png", name: "Innovative Solutions", link: "https://innovativesolutions.com" }
+  ];
+
   return (
-    <section 
-      id="services" 
-      className="min-h-screen bg-gradient-to-br from-gray-900 via-neutral-900 to-black py-16 px-4 relative overflow-hidden"
-    >
-      <div className="container mx-auto max-w-7xl">
-        {/* Title Section */}
-        <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-white animate-fadeInUp">
-            Innovative Digital Solutions
-          </h2>
-          <p className="text-gray-300 max-w-3xl mx-auto text-lg md:text-xl animate-fadeInUp delay-300">
-            Empowering businesses with cutting-edge digital marketing strategies that drive growth, engagement, and measurable results.
-          </p>
+    <>
+      <section 
+        id="services" 
+        className="min-h-screen bg-gradient-to-br from-neutral-950 via-neutral-900 to-black py-16 px-4 relative overflow-hidden"
+      >
+        {/* Animated Background Particles */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl animate-blob top-20 -left-10"></div>
+          <div className="absolute w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-blob animation-delay-2000 top-1/2 -right-10"></div>
+          <div className="absolute w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-blob animation-delay-4000 bottom-20 left-1/2"></div>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
-            <div 
-              key={index}
-              className={`
-                ${service.color} bg-opacity-10 border border-opacity-20 rounded-2xl p-6 
-                transform transition-all duration-500 hover:-translate-y-4 
-                hover:shadow-2xl hover:scale-105 group relative overflow-hidden
-              `}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
-              <div className="relative z-10">
-                <div className={`
-                  w-16 h-16 ${service.color} bg-opacity-20 rounded-xl flex items-center 
-                  justify-center mb-6 transition-all group-hover:rotate-12
-                `}>
-                  <service.icon 
-                    className="w-8 h-8 text-white" 
-                    strokeWidth={1.5} 
-                  />
-                </div>
-                
-                <h3 className="text-xl font-bold mb-4 text-white transition-colors group-hover:text-white/90">
-                  {service.title}
-                </h3>
-                
-                <p className="text-gray-300 mb-6 text-sm">
-                  {service.desc}
-                </p>
-                
-                <ul className="space-y-3 mb-8">
-                  {service.items.map((item, i) => (
-                    <li 
-                      key={i} 
-                      className="flex items-center text-gray-200 text-sm"
-                    >
-                      <ShieldCheck 
-                        className="w-5 h-5 mr-2 text-white/70" 
-                        strokeWidth={1.5} 
-                      />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                
-                <a 
-                  href={service.link} 
-                  className={`
-                    w-full text-center py-3 rounded-lg text-white font-semibold
-                    ${service.color} hover:${service.color} hover:brightness-110
-                    transition-all transform hover:scale-105 hover:shadow-xl
-                  `}
-                >
-                  Explore Service
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
+        <div className="container mx-auto max-w-7xl relative z-10">
+          {/* Title Section */}
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-100 animate-fadeInUp">
+              Innovative Digital Solutions
+            </h2>
+            <p className="text-neutral-400 max-w-3xl mx-auto text-lg md:text-xl animate-fadeInUp delay-300">
+              Empowering businesses with cutting-edge digital marketing strategies that drive growth, engagement, and measurable results.
+            </p>
+          </div>
 
-        {/* Performance Stats */}
-        <div className="mt-20 bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 md:p-12">
-          <h3 className="text-3xl font-bold text-center text-white mb-12">
-            Our Impact by the Numbers
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[
-              { icon: ChartBar, value: "500%", label: "ROI Increase" },
-              { icon: Clock, value: "24/7", label: "Support" },
-              { icon: Users, value: "100K+", label: "Clients Served" },
-              { icon: Rocket, value: "95%", label: "Success Rate" }
-            ].map((stat, index) => (
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {services.map((service, index) => (
               <div 
-                key={index} 
-                className="text-center bg-gray-900/50 rounded-xl p-6 hover:bg-gray-800/50 transition-all"
+                key={index}
+                className={`
+                  ${service.color} bg-opacity-30 border border-neutral-800 rounded-2xl p-6 
+                  transform transition-all duration-500 hover:-translate-y-4 
+                  hover:shadow-2xl hover:scale-105 group relative overflow-hidden
+                  bg-gradient-to-br ${service.gradientFrom} ${service.gradientTo}
+                `}
               >
-                <stat.icon 
-                  className="w-12 h-12 mx-auto text-blue-400 mb-4" 
-                  strokeWidth={1.5} 
-                />
-                <p className="text-3xl font-bold text-white mb-2">{stat.value}</p>
-                <p className="text-gray-400">{stat.label}</p>
+                <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="relative z-10">
+                  <div className={`
+                    w-16 h-16 ${service.color} bg-opacity-20 rounded-xl flex items-center 
+                    justify-center mb-6 transition-all group-hover:rotate-12
+                  `}>
+                    <service.icon 
+                      className="w-8 h-8 text-neutral-300" 
+                      strokeWidth={1.5} 
+                    />
+                  </div>
+                  
+                  <h3 className="text-xl font-bold mb-4 text-neutral-200 transition-colors group-hover:text-neutral-100">
+                    {service.title}
+                  </h3>
+                  
+                  <p className="text-neutral-400 mb-6 text-sm">
+                    {service.desc}
+                  </p>
+                  
+                  <ul className="space-y-3 mb-8">
+                    {service.items.map((item, i) => (
+                      <li 
+                        key={i} 
+                        className="flex items-center text-neutral-300 text-sm"
+                      >
+                        <ShieldCheck 
+                          className="w-5 h-5 mr-2 text-neutral-500" 
+                          strokeWidth={1.5} 
+                        />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <a 
+                    href={service.link} 
+                    className={`
+                      w-full block text-center py-3 rounded-lg 
+                      bg-yellow-400 text-black font-semibold
+                      hover:bg-yellow-500 
+                      transition-all transform hover:scale-105 hover:shadow-xl
+                      focus:outline-none focus:ring-2 focus:ring-yellow-300
+                    `}
+                  >
+                    Contact Now
+                  </a>
+                </div>
               </div>
             ))}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Client Logos Section */}
+      <section className="py-24 bg-black relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-neutral-900 to-black opacity-90"></div>
+        
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-white">
+            Trusted By Industry Leaders
+          </h2>
+          <div className="relative overflow-hidden">
+            <div className="flex animate-rotate-clients">
+              {[...clientLogos, ...clientLogos].map((client, index) => (
+                <a
+                  key={`${client.name}-${index}`}
+                  href={client.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-shrink-0 mx-6"
+                >
+                  <img
+                    src={client.logo}
+                    alt={client.name}
+                    className="h-20 md:h-24 grayscale hover:grayscale-0 opacity-60 hover:opacity-100 
+                               hover:scale-110 transition-all duration-300 ease-in-out"
+                  />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Custom CSS for Logo Animation */}
+      <style jsx>{`
+        @keyframes rotate-clients {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-rotate-clients {
+          display: flex;
+          animation: rotate-clients 20s linear infinite;
+          width: ${clientLogos.length * 2 * 120}px; /* Adjust based on logo size and spacing */
+        }
+        .animate-rotate-clients:hover {
+          animation-play-state: paused; /* Pause on hover */
+        }
+      `}</style>
+    </> 
   );
 };
 
