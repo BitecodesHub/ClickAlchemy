@@ -1,6 +1,5 @@
-import React, { useRef, useState, useEffect } from "react";
-import { useLocation, useNavigate, Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
   const [showLoading, setShowLoading] = useState(true);

@@ -234,15 +234,15 @@ export const Homepage = () => {
     >
       <section
         id="home"
-        className="min-h-screen flex items-center relative overflow-hidden"
+        className="px-9 min-h-screen flex items-center relative overflow-hidden"
         style={{
           background: 'radial-gradient(circle at center, rgba(255,215,0,0.05), rgba(0,0,0,0.9) 70%)'
         }}
       >
-        <div className="container flex justify-center mx-auto px-6 py-20 z-10">
+        <div className="font-sans container flex justify-center mx-auto px-6 py-20 z-10">
           <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="md:w-1/2 space-y-8">
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-tight" style={{
+            <div className="md:w-1/2 space-y-10 py-2">
+              <h1 className="text-3xl sm:text-6xl md:text-5xl font-extrabold leading-tight" style={{
                 background: 'linear-gradient(to right, #FFFFFF, #FFD700)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent'

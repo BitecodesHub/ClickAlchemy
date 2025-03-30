@@ -51,7 +51,7 @@ export const ClickAlchemyFooter = () => {
           <p className="text-white/80 mb-6">
             Digital transformation through innovative marketing strategies and cutting-edge technology.
           </p>
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 justify-center">
             {socialLinks.map((social) => (
               <a
                 key={social.name}
