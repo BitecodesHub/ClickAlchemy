@@ -1,5 +1,5 @@
-import type React from 'react';
 import { motion } from 'framer-motion';
+import type React from 'react';
 
 const HeroSection: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const HeroSection: React.FC = () => {
           className="max-w-3xl"
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-baskervville mb-6 leading-tight">
-            As a 'born in the digital era' marketing agency,<br/>
+            As a 'born in the digital era' marketing agency,<br />
             we have been challenging brands to innovate at <span className="font-bold">the intersection of data, creative & technology.</span>
           </h1>
 
@@ -28,15 +28,7 @@ const HeroSection: React.FC = () => {
       </div>
 
       {/* Logo Animation or Background Video */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
-        <div className="w-full md:w-3/4 lg:w-1/2">
-          <img
-            src="https://ext.same-assets.com/2675109532/3126635573.png"
-            alt="Langoor Background"
-            className="w-full object-contain"
-          />
-        </div>
-      </div>
+
     </section>
   );
 };

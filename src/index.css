@@ -8,6 +8,19 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* Custom styles for preloader */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Container-custom (if not already defined in your Tailwind config) */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
 :root {
   --background: 0 0% 100%;
   --foreground: 240 10% 3.9%;

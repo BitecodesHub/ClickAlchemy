@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { AnimatePresence, motion } from 'framer-motion';
 
+interface HeaderProps {
+  isLoading: boolean;
+}
+
 const navItems = [
   { name: 'HOME', path: '/' },
   { name: 'WORK', path: '/work' },
@@ -12,33 +16,33 @@ const navItems = [
   { name: 'CONTACT', path: '/contact' },
 ];
 
-const Header: React.FC = () => {
+const Header: React.FC<HeaderProps> = ({ isLoading }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-langoor-black/90 backdrop-blur-sm py-2' : 'py-4'}`}>
+    <header
+      className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ${scrolled ? 'bg-langoor-black/90 backdrop-blur-sm py-3' : 'py-5'
+        } ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+    >
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="text-langoor-lightGray font-bold flex items-center">
-          <div className="text-2xl md:text-3xl font-baskervville tracking-wider">
-            <span className="text-langoor-yellow">Click</span> Alchemyy
+          <div className="flex flex-col">
+            <div className="text-2xl md:text-3xl font-baskervville tracking-wider">
+              <span className="text-langoor-yellow">Click</span> Alchemyy
+            </div>
+            <div className="text-xs mt-1">An LS Digital Group Company</div>
           </div>
-          <div className="text-xs ml-2 mt-3">An LS Digital Group Company</div>
         </Link>
 
         {/* Desktop Navigation */}
@@ -60,11 +64,7 @@ const Header: React.FC = () => {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
         >
-          {isMenuOpen ? (
-            <XMarkIcon className="h-6 w-6" />
-          ) : (
-            <Bars3Icon className="h-6 w-6" />
-          )}
+          {isMenuOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
         </button>
       </div>
 
