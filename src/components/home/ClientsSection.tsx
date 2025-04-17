@@ -1,4 +1,4 @@
-import type React from 'react';
+import React, { memo } from 'react';
 
 const clients = [
   {
@@ -27,17 +27,35 @@ const ClientsSection: React.FC = () => {
   return (
     <section className="py-16 bg-langoor-black">
       <div className="container-custom">
-        {/* Clients Logos */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 items-center justify-items-center">
-          {clients.map((client) => (
-            <div key={client.name} className="flex items-center justify-center w-full max-w-[150px]">
-              <img
-                src={client.logo}
-                alt={`${client.name} logo`}
-                className="w-full h-auto opacity-80 hover:opacity-100 transition-opacity"
-              />
-            </div>
-          ))}
+        {/* Clients Logos Carousel */}
+        <div className="overflow-hidden">
+          <div className="flex animate-slide" style={{ width: `${clients.length * 200}px` }}>
+            {clients.map((client, index) => (
+              <div
+                key={`${client.name}-${index}`}
+                className="flex-shrink-0 w-[400px] mx-4 flex items-center justify-center"
+              >
+                <img
+                  src={client.logo}
+                  alt={`${client.name} logo`}
+                  className="w-full h-auto max-w-[300px] opacity-80 hover:opacity-100 transition-opacity"
+                />
+              </div>
+            ))}
+            {/* Duplicate clients for seamless looping */}
+            {clients.map((client, index) => (
+              <div
+                key={`${client.name}-duplicate-${index}`}
+                className="flex-shrink-0 w-[200px] mx-4 flex items-center justify-center"
+              >
+                <img
+                  src={client.logo}
+                  alt={`${client.name} logo`}
+                  className="w-full h-auto max-w-[200px] opacity-80 hover:opacity-100 transition-opacity"
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Years of Experience */}
@@ -49,8 +67,28 @@ const ClientsSection: React.FC = () => {
           </h3>
         </div>
       </div>
+
+      {/* Inline CSS for sliding animation */}
+      <style>{`
+        .animate-slide {
+          display: flex;
+          animation: slide 20s linear infinite;
+        }
+        .animate-slide:hover {
+          animation-play-state: paused;
+        }
+        @keyframes slide {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-${clients.length * 200}px);
+          }
+        }
+      `}</style>
     </section>
   );
 };
 
-export default ClientsSection;
+// Memoize to prevent unnecessary re-renders
+export default memo(ClientsSection);
